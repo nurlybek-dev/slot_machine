@@ -1,0 +1,4 @@
+*.o
+data
+*.exe
+.vscode/
