@@ -477,6 +477,45 @@ int main(int, char**)
         next_time += TICK_INTERVAL;
     }
 
+    SDL_DestroyTexture(gBackgroundTexture);
+    SDL_DestroyTexture(gPrizesTexture);
+
+    SDL_DestroyTexture(gSlotMachineTexture);
+    SDL_DestroyTexture(gHandleOffTexture);
+    SDL_DestroyTexture(gHandleOnTexture);
+
+    SDL_DestroyTexture(gSlotOneTexture);
+    SDL_DestroyTexture(gSlotTwoTexture);
+    SDL_DestroyTexture(gSlotThreeTexture);
+    SDL_DestroyTexture(gSlotFourTexture);
+
+    SDL_DestroyTexture(gCashLabelTexture);
+    SDL_DestroyTexture(gCashTexture);
+
+    SDL_DestroyTexture(gBetLabelTexture);
+    SDL_DestroyTexture(gBetTexture);
+
+    SDL_DestroyTexture(gBetPlusTexture);
+    SDL_DestroyTexture(gBetPlusPressedTexture);
+
+    SDL_DestroyTexture(gBetMinusTexture);
+    SDL_DestroyTexture(gBetMinusPressedTexture);
+
+    SDL_DestroyTexture(gPrizeLabelTexture);
+
+    SDL_DestroyTexture(gAudioOnTexture);
+    SDL_DestroyTexture(gAudioOffTexture);
+
+    TTF_CloseFont(gSans);
+
+    Mix_CloseAudio();
+    Mix_FreeChunk(betSound);
+    Mix_FreeChunk(winSound);
+    Mix_FreeChunk(playSound);
+    Mix_FreeChunk(jackpotSound);
+    Mix_FreeChunk(startSound);
+    Mix_FreeMusic(idleMusic);
+
     SDL_DestroyRenderer(gRenderer);
     SDL_DestroyWindow(gWindow);
     return 0;
