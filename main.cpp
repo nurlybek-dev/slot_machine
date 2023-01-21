@@ -470,7 +470,7 @@ int main(int, char**)
         SDL_DestroyTexture(gBetTexture);
         SDL_DestroyTexture(gCashTexture);
 
-        Mix_MasterVolume(audioOn ? MIX_MAX_VOLUME : 0);
+        Mix_Volume(-1, audioOn ? MIX_MAX_VOLUME : 0);
         Mix_VolumeMusic(audioOn ? MIX_MAX_VOLUME : 0);
 
         SDL_Delay(time_left());

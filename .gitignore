@@ -1,4 +1,5 @@
 *.o
 data
 *.exe
+game
 .vscode/

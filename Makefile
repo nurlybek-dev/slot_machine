@@ -22,16 +22,20 @@ UNAME_S := $(shell uname -s)
 CXXFLAGS = -std=c++11 -Iinclude
 CXXFLAGS += -g -Wall -Wformat
 LIBS =
+RM_CMD = 
+EXE = 
 ##---------------------------------------------------------------------
 ## BUILD FLAGS PER PLATFORM
 ##---------------------------------------------------------------------
 
 ifeq ($(UNAME_S), Linux) #LINUX
 	ECHO_MESSAGE = "Linux"
-	LIBS += -lGL -ldl `sdl2-config --libs`
+	LIBS += -lGL -ldl -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
 
-	CXXFLAGS += `sdl2-config --cflags`
+	CXXFLAGS += -I/usr/include/
 	CFLAGS = $(CXXFLAGS)
+	RM_CMD = rm
+	EXE = game
 endif
 
 ifeq ($(UNAME_S), Darwin) #APPLE
@@ -50,6 +54,8 @@ ifeq ($(OS), Windows_NT)
 
 	CXXFLAGS += -IC:/msys64/mingw64/include/SDL2 -Dmain=SDL_main
 	CFLAGS = $(CXXFLAGS)
+	RM_CMD = del
+	EXE = game.exe
 endif
 
 ##---------------------------------------------------------------------
@@ -74,4 +80,4 @@ $(EXE): $(OBJS)
 	$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
 
 clean:
-	del game.exe $(OBJS)
+	$(RM_CMD) $(EXE) $(OBJS)
